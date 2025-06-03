@@ -35,7 +35,7 @@ A simple command-line calculator written in Ruby. This tool supports basic arith
 3. Run the calculator:
 
    ```bash
-   ruby calculator.rb
+   ruby app.rb
    ```
 
 ---
