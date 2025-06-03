@@ -1,68 +1,67 @@
-def toplama(a, b)
+def add(a, b)
   a + b
 end
 
-def cikarma(a, b)
+def subtract(a, b)
   a - b
 end
 
-def carpma(a, b)
+def multiply(a, b)
   a * b
 end
 
-def bolme(a, b)
-  return "Sıfıra bölünemez!" if b == 0
+def divide(a, b)
+  return "Cannot divide by zero!" if b == 0
   a.to_f / b
 end
 
-def us_al(a, b)
+def power(a, b)
   a ** b
 end
 
-def mod_al(a, b)
+def mod(a, b)
   a % b
 end
 
-def islemi_sec(komut, a, b)
-  case komut
-  when '+' then toplama(a, b)
-  when '-' then cikarma(a, b)
-  when '*' then carpma(a, b)
-  when '/' then bolme(a, b)
-  when '^' then us_al(a, b)
-  when '%' then mod_al(a, b)
-  else "Geçersiz işlem!"
+def select_operation(command, a, b)
+  case command
+  when '+' then add(a, b)
+  when '-' then subtract(a, b)
+  when '*' then multiply(a, b)
+  when '/' then divide(a, b)
+  when '^' then power(a, b)
+  when '%' then mod(a, b)
+  else "Invalid operation!"
   end
 end
 
-puts "📟 Ruby Hesap Makinesi"
-puts "İşlem türleri: + - * / ^ (üs alma) % (mod alma)"
+puts "📟 Ruby Calculator"
+puts "Available operations: + - * / ^ (power) % (modulo)"
 
 loop do
-  print "\nBirinci sayı: "
+  print "\nFirst number: "
   x = gets.chomp
-  break if x.downcase == "çık"
+  break if x.downcase == "exit"
 
-  print "İkinci sayı: "
+  print "Second number: "
   y = gets.chomp
-  break if y.downcase == "çık"
+  break if y.downcase == "exit"
 
-  print "İşlem seç (+, -, *, /, ^, %): "
-  islem = gets.chomp
+  print "Choose operation (+, -, *, /, ^, %): "
+  operation = gets.chomp
 
   begin
     x = Float(x)
     y = Float(y)
-    sonuc = islemi_sec(islem, x, y)
-    puts "Sonuç: #{sonuc}"
+    result = select_operation(operation, x, y)
+    puts "Result: #{result}"
   rescue
-    puts "Lütfen geçerli sayılar girin."
+    puts "Please enter valid numbers."
   end
 
-  print "Devam etmek istiyor musun? (e/h): "
-  devam = gets.chomp.downcase
-  break if devam != "e"
+  print "Do you want to continue? (y/n): "
+  continue = gets.chomp.downcase
+  break if continue != "y"
 end
 
-puts "👋 Görüşmek üzere!"
-
+puts "👋 See you next time!"
