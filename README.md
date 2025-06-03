@@ -60,7 +60,6 @@ To exit at any point, type `exit` instead of a number.
 
 ## 👨‍💻 Author
 
-**Furkan Buğra**  
 GitHub: [@furkibuu](https://github.com/furkibuu)
 
 ---
